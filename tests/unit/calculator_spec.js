@@ -21,6 +21,12 @@ describe('calculator', function () {
     assert.equal(calculator.runningTotal, 15)
   })
 
+  it('it should be able to divide 21 by 7', function(){
+    calculator.previousTotal = 21;
+    calculator.divide(7)
+    assert.equal(calculator.runningTotal, 3)
+  })
+
   // it("add", function(){
   //    assert.equal("2", calculator.add(1, 1));
   //  });
