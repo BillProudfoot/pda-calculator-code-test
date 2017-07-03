@@ -39,15 +39,39 @@ describe('calculator', function () {
     assert.equal(calculator.runningTotal, 3)
    });
 
-  // it('returns the sum of the numbers', function() {
-  //      expect(add(3,5)).this.runningTotal(8);
-  //    });
-
-//   it('returns the sum of the numbers', function() {
-//   expect(Calculator.add(number1, number2)).toBe(number1 + number2);
-// });
-
-
+  it("it should be able to concatenaate multiple number button clicks", function(){
+    calculator.numberClick(1)
+    calculator.numberClick(2)
+    calculator.numberClick(3)
+    calculator.numberClick(4)
+    calculator.numberClick(5)
+    calculator.numberClick(6)
+    assert.equal(calculator.runningTotal, 123456)
+   });
   
+ it("it should be able to chain multiple operations together", function(){
+   calculator.numberClick(1)
+   calculator.operatorClick('+')
+   calculator.numberClick(2)
+   calculator.operatorClick('x')
+   calculator.numberClick(4)
+   calculator.operatorClick('/')
+   calculator.numberClick(4)
+   calculator.operatorClick('-')
+   calculator.numberClick(2)
+   calculator.operatorClick('=')
+   assert.equal(calculator.runningTotal, -1)
+  });
+
+ it("it can clear the running total without affecting the calculation", function(){
+   calculator.numberClick(1)
+   calculator.operatorClick('+')
+   calculator.numberClick(2)
+   calculator.clearClick()
+   calculator.numberClick(4)
+   calculator.operatorClick('=')
+   assert.equal(calculator.runningTotal, 5)
+  });
+
 
 });
