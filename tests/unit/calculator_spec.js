@@ -27,10 +27,17 @@ describe('calculator', function () {
     assert.equal(calculator.runningTotal, 3)
   })
 
-  // it("add", function(){
-  //    assert.equal("2", calculator.add(1, 1));
-  //  });
+  it("it should be able to add 1 + 4", function(){
+    calculator.previousTotal = 1;
+    calculator.add(4)
+    assert.equal(calculator.runningTotal, 5)
+   });
 
+  it("it should be able to subtract 7 minus 4", function(){
+    calculator.previousTotal = 7;
+    calculator.subtract(4)
+    assert.equal(calculator.runningTotal, 3)
+   });
 
   // it('returns the sum of the numbers', function() {
   //      expect(add(3,5)).this.runningTotal(8);
